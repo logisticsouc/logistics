@@ -1,4 +1,4 @@
-import {DriverResource} from './resourceConfig'
+import {DriverResource, TransportResource} from './resourceConfig'
 
 export default {
   // 司机创建新运单信息
@@ -9,8 +9,15 @@ export default {
   getTransitDetail: function (id) {
     return DriverResource.get({controller: 'transit', id: id})
   },
-  // 司机获取运单列表
-  getTransitList: function () {
-    return DriverResource.get({controller: 'transit'})
+  // 司机获取运单列表getTransitList
+  getTransitList: function (options) {
+    return DriverResource.get({controller: 'transit'}, options)
+  },
+  // 司机搜索公司信息
+  searchCompany: function (argument) {
+    return TransportResource.get({controller: 'company'}, {company: argument})
+  },
+  searchGoods: function (argument) {
+    return TransportResource.get({controller: 'goods'}, {goods: argument})
   }
 }

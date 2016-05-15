@@ -30,7 +30,7 @@ Vue.http.interceptors.push({
 })
 
 export const DriverResource = Vue.resource(API_ROOT + 'driver{/controller}{/id}')
-// export const AuthResource = Vue.resource(API_ROOT + 'auth{/id}')
+export const TransportResource = Vue.resource(API_ROOT + 'transport{/controller}')
 // export const ArticleResource = Vue.resource(API_ROOT + 'article{/id}{/controller}')
 // export const TagResource = Vue.resource(API_ROOT + 'tags{/id}')
 // export const CommentResource = Vue.resource(API_ROOT + 'comment{/id}{/controller}')

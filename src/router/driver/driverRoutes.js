@@ -4,11 +4,11 @@ export default function (router) {
     // '/driverHome': {
     //   component: require()
     // },
-    '/search/company': {
-      component: require('src/components/driver/Search.vue')
+    '/searchCompany/:place': {
+      component: require('src/components/driver/SearchCompany.vue')
     },
-    '/search/goods': {
-      component: require('src/components/driver/Search.vue')
+    '/searchGoods/:place': {
+      component: require('src/components/driver/SearchGoods.vue')
     },
     '/createTransit': {
       component: require('src/components/driver/CreateTransit.vue')
@@ -19,9 +19,9 @@ export default function (router) {
     '/driverTransitList/:id': {
       component: require('src/components/driver/DriverTransitDetail.vue')
     },
-    // '/driverTransitList/filter': {
-    //   component: require()
-    // },
+    '/driverTransitList/filter': {
+      component: require('src/components/driver/DriverTransitListFilter.vue')
+    },
     '/createRefuel': {
       component: require('src/components/driver/CreateRefuel.vue')
     }

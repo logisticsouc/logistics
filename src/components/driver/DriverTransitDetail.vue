@@ -78,7 +78,6 @@
 import {getTransitDetail} from 'src/vuex/actions'
 export default {
   ready () {
-    this.flush()
   },
   data () {
     return {

@@ -16,7 +16,7 @@
         </div>
       </li>
       <li>
-        <div class="item-content item-link" @click="selectCompany()">
+        <div class="item-content item-link" @click="selectCompany('startCompany')" >
           <div class="item-media"><i class="icon icon-form-name"></i></div>
           <div class="item-inner">
             <div class="item-title label">公司</div>
@@ -53,7 +53,7 @@
         </div>
       </li>
       <li>
-        <div class="item-content item-link" @click="selectCompany()">
+        <div class="item-content item-link" @click="selectCompany('stopCompany')">
           <div class="item-media"><i class="icon icon-form-name"></i></div>
           <div class="item-inner">
             <div class="item-title label">公司</div>
@@ -70,7 +70,7 @@
           <div class="item-inner">
             <div class="item-title label">重量</div>
             <div class="item-input">
-              <input type="text" placeholder="请输入重量" class="" v-model="driverInputTransit.stopWeight" v-validate:stopweight="['required']">
+              <input type="text" placeholder="请输入重量" v-model="driverInputTransit.stopWeight" v-validate:stopweight="['required']">
             </div>
             <span class ="validate" v-show="$createTransitValidator.stopweight.required">*</span>
           </div>
@@ -80,7 +80,7 @@
     <span class="content-block-title">公共信息:</span>
     <ul>
       <li>
-        <div class="item-content item-link" @click="selectGoods()">
+        <div class="item-content item-link" @click="selectGoods('goods')">
           <div class="item-media"><i class="icon icon-form-email"></i></div>
           <div class="item-inner">
             <div class="item-title label">货物</div>
@@ -104,48 +104,36 @@
 
 <script type="text/javascript">
 // import $ from 'zepto'
-import {resetTransit, submitTransit} from 'src/vuex/actions'
+import {resetTransit, submitTransit, addTransitInfo} from 'src/vuex/actions'
 export default {
   data () {
     return {
-      msg: '这是createTransit',
-      driverInputTransit: {
-        startTime: (new Date()).Format('YYYY-MM-DD'),
-        startCompany: '中国海洋大学',
-        goods: '硫酸',
-        startWeight: 0,
-        stopTime: (new Date()).Format('YYYY-MM-DD'),
-        stopCompany: '青岛市政府',
-        stopWeight: 0
-      }
+      msg: '这是createTransit'
     }
   },
   vuex: {
     getters: {
-      transit: ({createTransit}) => createTransit.transit
+      driverInputTransit: ({createTransit}) => createTransit.transit
     },
     actions: {
-      resetTransit, submitTransit
+      resetTransit, submitTransit, addTransitInfo
     }
   },
   methods: {
-    selectCompany: function () {
+    addInfo: function (option, value) {
+      this.addTransitInfo(option, value)
     },
-    selectGoods: function () {
+    selectCompany: function (e) {
+      this.$route.router.go({path: '/searchCompany/' + e})
+    },
+    selectGoods: function (e) {
+      this.$route.router.go({path: '/searchGoods/' + e})
     },
     submit: function (driverInputTransit) {
       this.submitTransit(driverInputTransit)
     },
     setDefault: function () {
-      this.driverInputTransit = {
-        startTime: (new Date()).Format('YYYY-MM-DD'),
-        startCompany: '',
-        goods: '',
-        startWeight: '',
-        stopTime: (new Date()).Format('YYYY-MM-DD'),
-        stopCompany: '',
-        stopWeight: ''
-      }
+      this.resetTransit()
     }
   }
 }
