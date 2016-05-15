@@ -4,21 +4,21 @@ export default function (router) {
     // '/driverHome': {
     //   component: require()
     // },
-    // '/search/company': {
-    //   component: require()
-    // },
-    // '/search/goods': {
-    //   component: require()
-    // },
-    '/createTransit': {
-      component: require('components/driver/CreateTransit.vue')
+    '/search/company': {
+      component: require('src/components/driver/Search.vue')
     },
-    // '/driverTransitList': {
-    //   component: require()
-    // },
-    // '/driverTransitList/:id': {
-    //   component: require()
-    // },
+    '/search/goods': {
+      component: require('src/components/driver/Search.vue')
+    },
+    '/createTransit': {
+      component: require('src/components/driver/CreateTransit.vue')
+    },
+    '/driverTransitList': {
+      component: require('src/components/driver/DriverTransitList.vue')
+    },
+    '/driverTransitList/:id': {
+      component: require('src/components/driver/DriverTransitDetail.vue')
+    },
     // '/driverTransitList/filter': {
     //   component: require()
     // },

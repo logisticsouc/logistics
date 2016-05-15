@@ -2,16 +2,16 @@ import {
   RESET_TRANSIT,
   SUBMIT_TRANSIT
 } from 'src/vuex/types'
-
+require('src/utils/date')
 const state = {
   transit: {
-    startTime: '',
-    startCompany: '中国海洋大学',
-    startGoods: '硫酸',
-    startWeitht: 0,
-    stopTime: '',
-    stopCompany: '青岛市政府',
-    stopGoods: '硫酸',
+    startTime: (new Date()).Format('YYYY-MM-DD'),
+    startCompany: '',
+    startGoods: '',
+    startWeight: 0,
+    stopTime: (new Date()).Format('YYYY-MM-DD'),
+    stopCompany: '',
+    stopGoods: '',
     stopWeight: 0
   }
 }

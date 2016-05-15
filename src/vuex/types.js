@@ -1,3 +1,10 @@
-// 创建运单的mutation
+// 司机创建运单的mutation定义
 export const RESET_TRANSIT = 'RESET_TRANSIT'
 export const SUBMIT_TRANSIT = 'SUBMIT_TRANSIT'
+// 司机查看个人运单详情的mutation定义
+export const DRIVER_TRANSIT_DETAIL = 'DRIVER_TRANSIT_DETAIL'
+export const GET_DRIVER_TRANSIT_DETAIL_FAILURE = 'GET_DRIVER_TRANSIT_DETAIL_FAILURE'
+// 司机个人运单列表的mutation定义
+export const DRIVER_TRANSIT_LIST = 'DRIVER_TRANSIT_LIST'
+export const GET_DRIVER_TRANSIT_LIST_FAILURE = 'GET_DRIVER_TRANSIT_LIST_FAILURE'
+
