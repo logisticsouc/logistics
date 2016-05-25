@@ -91,8 +91,6 @@ export default {
     actions: {
       getTransitDetail
     }
-  },
-  methods: {
   }
 }
 </script>

@@ -32,7 +32,7 @@
           <div class="item-inner">
             <div class="item-title label">重量</div>
             <div class="item-input">
-              <input type="text" placeholder="请输入重量" class="" v-model="driverInputTransit.startWeight" v-validate:startweight="{required: true}">
+              <input type="number" step="5" placeholder="请输入重量" class="" v-model="driverInputTransit.startWeight" v-validate:startweight="{required: true}">
             </div>
             <span class ="validate" v-show="$createTransitValidator.startweight.required">*</span>
           </div>
@@ -70,7 +70,7 @@
           <div class="item-inner">
             <div class="item-title label">重量</div>
             <div class="item-input">
-              <input type="text" placeholder="请输入重量" v-model="driverInputTransit.stopWeight" v-validate:stopweight="['required']">
+              <input type="number" step="5" placeholder="请输入重量" v-model="driverInputTransit.stopWeight" v-validate:stopweight="['required']">
             </div>
             <span class ="validate" v-show="$createTransitValidator.stopweight.required">*</span>
           </div>
@@ -104,7 +104,7 @@
 
 <script type="text/javascript">
 // import $ from 'zepto'
-import {resetTransit, submitTransit, addTransitInfo} from 'src/vuex/actions'
+import {resetTransit, submitTransit} from 'src/vuex/actions'
 export default {
   data () {
     return {
@@ -116,7 +116,7 @@ export default {
       driverInputTransit: ({createTransit}) => createTransit.transit
     },
     actions: {
-      resetTransit, submitTransit, addTransitInfo
+      resetTransit, submitTransit
     }
   },
   methods: {
@@ -130,6 +130,7 @@ export default {
       this.$route.router.go({path: '/searchGoods/' + e})
     },
     submit: function (driverInputTransit) {
+      console.log(this)
       this.submitTransit(driverInputTransit)
     },
     setDefault: function () {
